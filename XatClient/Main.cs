@@ -15,7 +15,9 @@ namespace XatClient
 			{
 				while (true)
 				{
-					client.WriteLine("Hola! Sóc el client enviant un missatge!");
+                    string frase = Console.ReadLine();
+
+					client.WriteLine(frase);
 				}
 			}
 		}
