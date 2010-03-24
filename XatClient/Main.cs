@@ -9,7 +9,7 @@ namespace XatClient
 	{
 		public static void Main(string[] args)
 		{
-			Client client = new Client("192.168.130.26", 6969);
+			Client client = new Client("127.0.0.1", 6969);
 			
 			if (client.ConnectToServer())
 			{
