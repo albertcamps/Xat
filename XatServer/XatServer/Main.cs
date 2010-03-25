@@ -19,21 +19,21 @@ namespace XatServer
             }
             do
             {
-                if (servidor.WaitForAClient())
+                if (servidor.WaitForAClient(servidor))
                 {
                     try
                     {
                         // Escribim tot el que ens envii el client
                         while (true)
                         {
-                            Console.WriteLine("El client diu: " + servidor.ReadLine());
+                            Console.WriteLine(servidor.ReadLine());
                         }
 
                         // server.WriteLine("Hi!"); 
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e.Message);
+                        //Console.WriteLine(e.Message);
                     }
                 }
             } while (true);
@@ -85,7 +85,7 @@ namespace XatServer
             return true;
         }
 
-        public bool WaitForAClient()
+        public bool WaitForAClient(Server servidor)
         {
             // Esperem una connexio d'un client
             Socket serverSocket = listener.AcceptSocket();
@@ -106,7 +106,8 @@ namespace XatServer
                 return false;
             }
 
-            Console.WriteLine("Un client s'ha connectat!");
+            //Console.WriteLine("Un client s'ha connectat!");
+            Console.WriteLine(servidor.ReadLine());
 
             return true;
         }

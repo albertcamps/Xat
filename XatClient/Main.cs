@@ -12,12 +12,25 @@ namespace XatClient
 			Client client = new Client("127.0.0.1", 6969);
 			
 			if (client.ConnectToServer())
-			{
-				while (true)
-				{
-                    string frase = Console.ReadLine();
+            {
+                string frase = "";
+                
+                Console.WriteLine("usuari: ");
+                string usuari = Console.ReadLine();
+                Console.WriteLine("Benvingut "+usuari);
+                client.WriteLine(usuari + " s'ha conectat");
 
-					client.WriteLine(frase);
+				while (frase!="disconnect")
+				{
+                    frase = Console.ReadLine();
+                    if (frase != "disconnect")
+                    {
+                        client.WriteLine(usuari + " diu: " + frase);
+                    }
+                    else
+                    {
+                        client.WriteLine(usuari + " s'ha desconnectat");
+                    }
 				}
 			}
 		}
